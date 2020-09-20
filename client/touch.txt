@@ -1,0 +1,3 @@
+componentDidUpdate(prevProps, prevState)
+
+the way to limit componentDidUpdate is to check if the prevProps before the update is different from the changed props

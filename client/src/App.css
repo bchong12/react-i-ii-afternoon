@@ -1,0 +1,30 @@
+.bottom {
+  height: 89vh;
+  background-color: black;
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.bottom-rack {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  width: 64vw;
+  margin-top: 3px;
+}
+
+.move-button {
+  background-color: black;
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.move-button:hover {
+  color: rgb(41, 175, 228);
+}
