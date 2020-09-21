@@ -13,6 +13,12 @@ class App extends React.Component {
     this.state = {
       data: data,
       index: 0,
+      new: [
+        {
+          id: 26,
+          name: { first: "", last: "" },
+        },
+      ],
     };
   }
 
@@ -24,7 +30,7 @@ class App extends React.Component {
         <Header />
         <div className="bottom">
           <Card
-            index={this.state.data[this.state.index].id}
+            index={this.state.index + 1}
             title={`${this.state.data[this.state.index].name.first} ${
               this.state.data[this.state.index].name.last
             }`}
@@ -34,6 +40,7 @@ class App extends React.Component {
             movie1={this.state.data[this.state.index].favoriteMovies[0]}
             movie2={this.state.data[this.state.index].favoriteMovies[1]}
             movie3={this.state.data[this.state.index].favoriteMovies[2]}
+            last={this.state.data.length}
           />
           <div className="bottom-rack">
             <button
@@ -41,7 +48,7 @@ class App extends React.Component {
               onClick={() => {
                 if (this.state.index === 0) {
                   return this.setState({
-                    index: 24,
+                    index: this.state.data.length - 1,
                   });
                 }
                 this.setState({
@@ -52,13 +59,23 @@ class App extends React.Component {
               {text1} Previous
             </button>
             <div className="buttons">
-              <Button title="Edit" />
-              <Button title="Delete" />
+              <Button title="Edit" func={() => {}} />
+              <Button
+                func={() => {
+                  let newData = this.state.data;
+                  newData.splice(this.state.index, 1);
+                  this.setState({
+                    index: 0,
+                    data: newData,
+                  });
+                }}
+                title="Delete"
+              />
               <Button title="New" />
             </div>
             <button
               onClick={() => {
-                if (this.state.index === 24) {
+                if (this.state.index === this.state.data.length - 1) {
                   return this.setState({
                     index: 0,
                   });

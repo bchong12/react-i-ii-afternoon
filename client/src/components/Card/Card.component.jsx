@@ -6,7 +6,9 @@ const Card = (props) => {
   return (
     <div className="card">
       <div className="flex-right">
-        <h3 className="card-number">{props.index}/25</h3>
+        <h3 className="card-number">
+          {props.index}/{props.last}
+        </h3>
       </div>
       <div className="other-text">
         <h1 className="title">{props.title}</h1>
